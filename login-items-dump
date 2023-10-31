@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+# https://apple.stackexchange.com/questions/465920/how-to-determine-details-of-backgound-process
+
+sudo ${SUDO_ASKPASS:+-A} sfltool dumpbtm |
+/usr/bin/awk 'BEGIN { capture=0 }
+
+/^ #/ { capture=1; next }
+/^$/ { capture=0 }
+
+capture {
+    if (/UUID:/) { uuid=$2 }
+    if (/URL:/) { url=$2 }
+    if (/Bundle Identifier:/) { id=$3 }
+    if (/Name:/) { name=$0; sub(/^.*Name: /, "", name) }
+    if (/Executable Path:/) { execpath=$0; sub(/^.*Executable Path: /, "", execpath) }
+}
+
+/^$/ {
+    if (!uuid) { uuid = "-" }
+    if (!id) { id = "-" }
+    if (!name || name == "(null)") { name = "-" }
+    if (!url || url == "(null)") { url = "-" }
+    if (!execpath) { execpath = "-" }
+    ue = url "|" execpath
+    if (ue!="-|-" && a[ue]=="") {
+        printf "%s\t%s\t%s\t%s\t%s\n", uuid, id, name, url, execpath
+        a[ue]=1
+    }
+    uuid=id=name=url=execpath=ue=""
+}' |
+/usr/bin/sort -k2
