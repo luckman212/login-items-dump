@@ -25,7 +25,7 @@ login-items-dump
 The output is tab-separated, and contains 5 columns which should contain useful information:
 
 - UUID
-- Name (DeveloperName) (daemons will be prefixed with a 👿 demon emoji!)
+- Name (DeveloperName) (daemons will be prefixed with a 👿 emoji)
 - BundleID
 - URL (typically a URL-encoded file path)
 - ExecPath
