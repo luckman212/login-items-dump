@@ -2,7 +2,7 @@
 
 # login-items-dump
 
-Little mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfuscated list from System Settings → General → Login Items, otherwise known as *Background Task Management* aka **BTM**.
+Inspired by [this AskDifferent post](https://apple.stackexchange.com/questions/465920/how-to-determine-details-of-backgound-process), this is a little mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfuscated list from System Settings → General → Login Items, otherwise known as *Background Task Management* aka **BTM**.
 
 For example, here's a sample of what's shown in the Settings app:
 
