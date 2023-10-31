@@ -6,7 +6,7 @@ Small mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfusc
 
 For example, here's the info shown in the Settings app:
 
-<img src=image1.png width=956>
+<img src=image1.png width=478>
 
 Note how it's missing any information about what or where those programs are, Bundle IDs, etc. Not very useful.
 
@@ -18,7 +18,7 @@ login-items-dump
 
 > It requires root permissions, so you may be asked for your password.
 
-<img src=image2.png width=2326>
+<img src=image2.png width=1163>
 
 The output is tab-separated, and contains 5 columns which should contain useful information:
 
