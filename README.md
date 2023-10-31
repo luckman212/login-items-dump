@@ -10,7 +10,7 @@ For example, here's a sample of what's shown in the Settings app:
 
 Note how it's missing any information about what or where those programs are, Bundle IDs, etc. Not very useful.
 
-If you clone this repo (if you don't know how to do that, click the green **Code** button above, and then **Download ZIP**) then copy the `login-items-dump` script to your `/usr/local/bin` directory, you can run this command from a Terminal:
+If you clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory, you can run this command from a Terminal:
 
 ```
 login-items-dump
