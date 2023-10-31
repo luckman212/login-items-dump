@@ -20,24 +20,24 @@ login-items-dump
 
 ### Screenshot of a portion of the program's output
 
-<img src=image2.png width=1163>
+<img src=image2.png width=1016>
 
 The output is tab-separated, and contains 5 columns which should contain useful information:
 
 - UUID
-- Name (DeveloperName)
+- Name (DeveloperName) (daemons will be prefixed with a 👿 demon emoji!)
 - BundleID
 - URL (typically a URL-encoded file path)
 - ExecPath
 
-You can parse it further with your favorite unix tools like `grep`, `sed`, or `awk`.
+If you see _"affects all users"_ in small text below the item in the Settings app, it indicates that item is a daemon. You can parse the output further with your favorite unix tools like `grep`, `sed`, or `awk`.
 
 ### Examples
 
 To squeeze and truncate the output so it fits better on a single line, try
 
 ```
-login-items-dump | sed 's/\t/  /g' | cut -c-$COLUMNS
+login-items-dump | sed 's/\t/  /g' | cut -c-$((COLUMNS-5))
 ```
 
 To search for Google stuff

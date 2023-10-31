@@ -11,6 +11,7 @@ sudo ${SUDO_ASKPASS:+-A} sfltool dumpbtm |
 capture {
     if (/UUID:/) { uuid=$2 }
     if (/URL:/) { url=$2 }
+    if (/Type:/) { type=$0; sub(/^.*Type: /, "", type) }
     if (/Bundle Identifier:/) { bid=$3 }
     if (/  Name:/) { name=$0; sub(/^.*  Name: /, "", name) }
     if (/Developer Name:/) { devname=$0; sub(/^.*Developer Name: /, "", devname) }
@@ -26,6 +27,7 @@ capture {
     } else {
         cname = sprintf("%s%s", name, devname)
     }
+    if (type ~ /daemon/) { cname = "👿" cname }
     if (!uuid) { uuid = "-" }
     if (!bid) { bid = "-" }
     if (!cname) { cname = "-" }
@@ -36,6 +38,6 @@ capture {
         printf "%s\t%s\t%s\t%s\t%s\n", uuid, cname, bid, url, execpath
         a[ue]=1
     }
-    uuid=bid=name=url=execpath=ue=""
+    uuid=type=bid=name=devname=cname=url=execpath=ue=""
 }' |
 /usr/bin/sort -k2
