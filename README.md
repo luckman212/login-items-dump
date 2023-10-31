@@ -18,7 +18,7 @@ login-items-dump
 
 > *It requires root permissions, so you will likely be asked for your password. For unattended scripting, you can use `SUDO_ASKPASS` to avoid the password prompt, but that's beyond the scope of this README.*
 
-## Small sample of the program's output
+### Screenshot of a portion of the program's output
 
 <img src=image2.png width=1163>
 
@@ -30,7 +30,7 @@ The output is tab-separated, and contains 5 columns which should contain useful 
 - URL (typically a URL-encoded file path)
 - ExecPath
 
-You can parse it further with your favorite unix tools like `grep`, `sed`, `awk`.
+You can parse it further with your favorite unix tools like `grep`, `sed`, or `awk`.
 
 ### Examples
 
