@@ -2,13 +2,13 @@
 
 # login-items-dump
 
-Inspired by [this AskDifferent post](https://apple.stackexchange.com/questions/465920/how-to-determine-details-of-backgound-process), this is a little mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfuscated list from System Settings → General → Login Items, otherwise known as *Background Task Management* aka **BTM**.
+Inspired by [this AskDifferent post](https://apple.stackexchange.com/questions/465920/how-to-determine-details-of-backgound-process), this is a little mashup of `sfltool` + `awk` that enumerates, parses and outputs details about your Mac's Startup Items/Login Items, which are stored in a *Background Task Management* aka **BTM** database.
 
-For example, here's a sample of what's shown in the Settings app:
+This information is normally shown with very limited info in System Settings → General → Login Items. For example:
 
 <img src=image1.png width=478>
 
-Note how it's missing any information about what or where those programs are, Bundle IDs, etc. Not very useful.
+Note how it's missing any information about what or where those programs are, Bundle IDs, file paths, etc. Not very useful.
 
 If you clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory, you can run this command from a Terminal:
 
