@@ -2,9 +2,9 @@
 
 # login-items-dump
 
-Little mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfuscated list from System Settings → General → Login Items, otherwise known as Background Task Management aka **BTM**.
+Little mashup of `zsh` + `sfltool` + `awk` that enumerates and outputs the obfuscated list from System Settings → General → Login Items, otherwise known as *Background Task Management* aka **BTM**.
 
-For example, here's the info shown in the Settings app:
+For example, here's a sample of what's shown in the Settings app:
 
 <img src=image1.png width=478>
 
