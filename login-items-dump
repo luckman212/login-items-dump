@@ -11,22 +11,31 @@ sudo ${SUDO_ASKPASS:+-A} sfltool dumpbtm |
 capture {
     if (/UUID:/) { uuid=$2 }
     if (/URL:/) { url=$2 }
-    if (/Bundle Identifier:/) { id=$3 }
-    if (/Name:/) { name=$0; sub(/^.*Name: /, "", name) }
+    if (/Bundle Identifier:/) { bid=$3 }
+    if (/  Name:/) { name=$0; sub(/^.*  Name: /, "", name) }
+    if (/Developer Name:/) { devname=$0; sub(/^.*Developer Name: /, "", devname) }
     if (/Executable Path:/) { execpath=$0; sub(/^.*Executable Path: /, "", execpath) }
 }
 
 /^$/ {
+    if (url=="(null)") { url = "" }
+    if (name=="(null)") { name = "" }
+    if (devname=="(null)") { devname = "" }
+    if (name && devname) {
+        cname = sprintf("%s (%s)", name, devname)
+    } else {
+        cname = sprintf("%s%s", name, devname)
+    }
     if (!uuid) { uuid = "-" }
-    if (!id) { id = "-" }
-    if (!name || name == "(null)") { name = "-" }
-    if (!url || url == "(null)") { url = "-" }
+    if (!bid) { bid = "-" }
+    if (!cname) { cname = "-" }
+    if (!url) { url = "-" }
     if (!execpath) { execpath = "-" }
     ue = url "|" execpath
     if (ue!="-|-" && a[ue]=="") {
-        printf "%s\t%s\t%s\t%s\t%s\n", uuid, id, name, url, execpath
+        printf "%s\t%s\t%s\t%s\t%s\n", uuid, cname, bid, url, execpath
         a[ue]=1
     }
-    uuid=id=name=url=execpath=ue=""
+    uuid=bid=name=url=execpath=ue=""
 }' |
 /usr/bin/sort -k2
