@@ -32,8 +32,11 @@ The output is tab-separated, and contains 5 columns which should contain useful 
 
 You can parse the output further with your favorite unix tools like `grep`, `sed`, or `awk`.
 
-> If you see _"affects all users"_ in small text below the item in the Settings app, it indicates that item is a daemon. That 👿 may help you identify such items when there are multiple items with the same Name.
+> If you see _"affects all users"_ in small text below the item in the Settings app, it indicates that item is a daemon. That 👿 may help you identify such items when there are multiple items with the same Name. For example:
+> 
 > <img src=image3.png width=464>
+> 
+> <img src=image4.png width=838>
 
 ### Examples
 
