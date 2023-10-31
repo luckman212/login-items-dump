@@ -10,6 +10,8 @@ This information is normally shown with very limited info in System Settings →
 
 Note how it's missing any information about what or where those programs are, Bundle IDs, file paths, etc. Not very useful.
 
+### Setting up
+
 If you clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory, you can run this command from a Terminal:
 
 ```
@@ -22,16 +24,19 @@ login-items-dump
 
 <img src=image2.png width=1016>
 
+### Usage
+
 The output is tab-separated, and contains 5 columns which should contain useful information:
 
 - UUID
-- Name (DeveloperName) (daemons will be prefixed with a 👿 emoji)
+- Name (DeveloperName) (daemons are prefixed with a 👿 emoji)
 - BundleID
 - URL (typically a URL-encoded file path)
 - ExecPath
 
 You can parse the output further with your favorite unix tools like `grep`, `sed`, or `awk`.
 
+> **Note about Daemons**
 > If you see _"affects all users"_ in small text below the item in the Settings app, it indicates that item is a daemon. That 👿 may help you identify such items when there are multiple items with the same Name. For example:
 > 
 > <img src=image3.png width=464>
