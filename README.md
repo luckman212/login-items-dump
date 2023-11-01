@@ -14,17 +14,14 @@ Note how it's missing any information about what or where those programs are, Bu
 
 Clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory. You can then run this command from a Terminal:
 
+### Usage
+
+Open a Terminal and type
 ```
 login-items-dump
 ```
 
-> *Executing `sfltool dumpbtm` requires root permissions, so you will likely be asked for your password. For unattended scripting, you can use `SUDO_ASKPASS` to avoid the password prompt, but that's beyond the scope of this README.*
-
-### Screenshot of a portion of the program's output
-
-<img src=image2.png width=1016>
-
-### Usage
+> **N.B.** *executing `sfltool dumpbtm` requires root permissions, so you will likely be asked for your password. For unattended scripting, you can use `SUDO_ASKPASS` to avoid the password prompt, but that's beyond the scope of this README.*
 
 The output is tab-separated, and contains 5 columns which should contain useful information:
 
@@ -62,3 +59,7 @@ sfltool resetbtm
 ```
 
 For more information about background task management, you may want to read Apple's [Manage login items and background tasks on Mac](https://support.apple.com/guide/deployment/manage-login-items-background-tasks-mac-depdca572563/web) page.
+
+### Screenshot of a portion of the program's output
+
+<img src=image2.png width=1016>
