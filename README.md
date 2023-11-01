@@ -60,6 +60,6 @@ sfltool resetbtm
 
 For more information about background task management, you may want to read Apple's [Manage login items and background tasks on Mac](https://support.apple.com/guide/deployment/manage-login-items-background-tasks-mac-depdca572563/web) page.
 
-### Screenshot of a portion of the program's output
+### Screenshot showing a portion of the program's output
 
 <img src=image2.png width=1016>
