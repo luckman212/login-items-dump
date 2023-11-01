@@ -18,7 +18,7 @@ Clone this repo (if you don't know how to do that, click the green **Code** butt
 login-items-dump
 ```
 
-> *It requires root permissions, so you will likely be asked for your password. For unattended scripting, you can use `SUDO_ASKPASS` to avoid the password prompt, but that's beyond the scope of this README.*
+> *Executing `sfltool dumpbtm` requires root permissions, so you will likely be asked for your password. For unattended scripting, you can use `SUDO_ASKPASS` to avoid the password prompt, but that's beyond the scope of this README.*
 
 ### Screenshot of a portion of the program's output
 
