@@ -5,6 +5,20 @@
 sudo ${SUDO_ASKPASS:+-A} sfltool dumpbtm |
 /usr/bin/awk 'BEGIN { capture=0 }
 
+function f(field, dv) {
+    if (field && field != "(null)") {
+        return field
+    } else {
+        return (dv=="" ? "-" : dv)
+    }
+}
+
+function fe(field) {
+    if (field && field != "(null)") {
+        return field
+    }
+}
+
 /^ #/ { capture=1; next }
 /^$/ { capture=0 }
 
@@ -13,31 +27,23 @@ capture {
     if (/URL:/) { url=$2 }
     if (/Type:/) { type=$0; sub(/^.*Type: /, "", type) }
     if (/Bundle Identifier:/) { bid=$3 }
-    if (/  Name:/) { name=$0; sub(/^.*  Name: /, "", name) }
+    if (/^[[:space:]]+Name:/) { name=$0; sub(/^.*Name: /, "", name) }
     if (/Developer Name:/) { devname=$0; sub(/^.*Developer Name: /, "", devname) }
     if (/Executable Path:/) { execpath=$0; sub(/^.*Executable Path: /, "", execpath) }
 }
 
 /^$/ {
-    if (url=="(null)") { url = "" }
-    if (name=="(null)") { name = "" }
-    if (devname=="(null)") { devname = "" }
-    if (name && devname) {
+    if (fe(name) && fe(devname)) {
         cname = sprintf("%s (%s)", name, devname)
     } else {
-        cname = sprintf("%s%s", name, devname)
+        cname = sprintf("%s%s", fe(name), fe(devname))
     }
     if (type ~ /daemon/) { cname = "👿" cname }
-    if (!uuid) { uuid = "-" }
-    if (!bid) { bid = "-" }
-    if (!cname) { cname = "-" }
-    if (!url) { url = "-" }
-    if (!execpath) { execpath = "-" }
-    ue = url "|" execpath
-    if (ue!="-|-" && a[ue]=="") {
+    ue = fe(url) "|" fe(execpath)
+    if (ue!="|" && a[ue]=="") {
         printf "%s\t%s\t%s\t%s\t%s\n", uuid, cname, bid, url, execpath
         a[ue]=1
     }
-    uuid=type=bid=name=devname=cname=url=execpath=ue=""
+    uuid=url=type=bid=name=devname=execpath=cname=ue=""
 }' |
 /usr/bin/sort -k2
