@@ -42,6 +42,11 @@ You can parse the output further with your favorite unix tools like `grep`, `sed
 
 ### Examples
 
+Output in neatly formatted columns
+```
+( printf "UUID\tName\tBundleID\tURL\tExecPath\n"; login-items-dump; ) | column -s$'\t' -t
+```
+
 To squeeze and truncate the output so it fits better on a single line, try
 
 ```

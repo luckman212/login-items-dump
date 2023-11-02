@@ -41,7 +41,7 @@ capture {
     if (type ~ /daemon/) { cname = "👿" cname }
     ue = fe(url) "|" fe(execpath)
     if (ue!="|" && a[ue]=="") {
-        printf "%s\t%s\t%s\t%s\t%s\n", uuid, cname, bid, url, execpath
+        printf "%s\t%s\t%s\t%s\t%s\n", uuid, cname, f(bid), f(url), f(execpath)
         a[ue]=1
     }
     uuid=url=type=bid=name=devname=execpath=cname=ue=""
