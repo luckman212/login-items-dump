@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# https://apple.stackexchange.com/questions/465920/how-to-determine-details-of-backgound-process
+# https://apple.stackexchange.com/a/465945/100302
 
 sudo ${SUDO_ASKPASS:+-A} sfltool dumpbtm |
 /usr/bin/awk 'BEGIN { capture=0 }
