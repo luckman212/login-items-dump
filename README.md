@@ -12,7 +12,7 @@ Note how it's missing any information about what or where those programs are, Bu
 
 ### Setting up
 
-Clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory. You can then run this command from a Terminal:
+Clone this repo (if you don't know how to do that, click the green **Code** button above, then **Download ZIP**) and copy the `login-items-dump` script to your `/usr/local/bin` directory. You can then run the command from a Terminal.
 
 ### Usage
 
